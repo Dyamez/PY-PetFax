@@ -5,7 +5,7 @@ import json
 pets = json.load(open('pets.json'))
 print(pets)
 
-bp = Blueprint('pet', __name__, url_prefix="/pets", template_folder='../templates') # template_folder='templates', 
+bp = Blueprint('pet', __name__, url_prefix="/pets") # , template_folder='../templates' 
 
 @bp.route('/')
 def index(): 
