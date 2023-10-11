@@ -12,5 +12,12 @@ def create_app():
     from .import pet
     app.register_blueprint(pet.bp)
 
+    from .import fact
+    app.register_blueprint(fact.bp)
+
+    app.route('/')
+    def index():
+        return "Hello form petfax"
+
     
     return app
