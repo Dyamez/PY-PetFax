@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css')}}"
+    />
     <title>PetFax</title>
-</head>
-<body>
-    <div class="container">
-    <h1>Welcome to PetFax</h1>
-    <div class="pets-container"></div>
+  </head>
+  <body>
+    <h1>Welcome to PetFax Center</h1>
     {% for pet in pets %}
-    <div class="pet">
-        
-        <h2>{{pet.pet_name}}</h2>
-        <img src="{{ pet.pet_photo }}" alt="{{pet.pet_name}}"/>
-        <a href="/pets/{{pet.pet_id}}">Learn more...</a>
-    </div>
-</div>
-    {% endfor %}
-</div>
-</div>
     <div class="container">
-        <div class="callout">
-            We would love more pets
-            <a href="/facts/new">here</a>
-        
+      <div class="pets-container">
+        <h2>{{pet.pet_name}}</h2>
+        <img src="{{ pet.pet_photo }}" alt="{{pet.pet_name}}" />
+        <a href="/pets/{{pet.pet_id}}">Learn more...</a>
+      </div>
     </div>
-</body>
+    {% endfor %}
+    <div class="container">
+      <div class="callout">
+        We would love more pets - tell us which pets you want to donate.
+        <a href="/pets/new">here</a>
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css')}}"
+    />
     <title>PetFax | Add a pet</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Submit Fax</h1>
-        <div class="callout">
-            If you have an animal you want to care for.
-        </div>
-        <div class="fact-container">
-            <form>
-                <label for="submitter">
-                    <h2>Name</h2>
-                </label>
-                <input type="text" name="submitter">
-                <br>
-                <label for="fact">
-                    <h2>Fact</h2>
-                </label>
-                <textarea name="fact" cols="30" rows="10"></textarea>
-                <br>
-                <label for="photo">
-                    <h2>Photo</h2>
-                </label>
-                <input type="text" name="photo">
-                <br>
-                <input type="submit" value="Submit the Fact"
-            </form>
-        </div>
-        <a href="/pets">&</a>
+      <h1>Submit Pet</h1>
+      <div class="callout">If you have an animal you want to care for.</div>
+      <div class="fact-container">
+        <form>
+          <label for="submitter">
+            <h2>Name</h2>
+          </label>
+          <input type="text" name="submitter" />
+          <br />
+          <label for="fact">
+            <h2>Fact</h2>
+          </label>
+          <textarea name="fact" cols="30" rows="10"></textarea>
+          <br />
+          <label for="photo">
+            <h2>Photo</h2>
+          </label>
+          <input type="text" name="photo" />
+          <br />
+          <input type="submit" value="Submit the Fact"
+        </form>
+      </div>
+      <a href="/pets">&lt;&lt; Go Back</a>
     </div>
-</body>
+  </body>
 </html>
