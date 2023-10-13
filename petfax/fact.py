@@ -1,4 +1,5 @@
 from flask import ( Blueprint, render_template, request, redirect) 
+from .import models
 
 bp = Blueprint('fact', __name__, url_prefix="/facts") #/pets
 
@@ -6,9 +7,22 @@ bp = Blueprint('fact', __name__, url_prefix="/facts") #/pets
 def index():
     if request.method == "POST":
         print(request.form)
+
+        submitter = request.form['submitter']
+        fact = request.form['fact']
+        photo = request.form['photo']
+
+        new_fact = models.Fact(submitter=submitter, fact=fact, photo=photo)
+        models.db.session.add(new_fact)
+        models.db.session.commit()
+
         redirect('/facts')
+
+    results = models.Fact.query.all()
+    for result in results:
+        print(result)
     
-    return render_template('facts/index.html')
+    return render_template('facts/index.html', facts=results)
     # return 'Thanks for submitting a fun fact!'
 
 @bp.route('new')
