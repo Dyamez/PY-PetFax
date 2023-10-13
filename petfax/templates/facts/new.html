@@ -14,7 +14,7 @@
       <h1>Submit Pet</h1>
       <div class="callout">If you have an animal you want to care for.</div>
       <div class="fact-container">
-        <form>
+        <form action="/facts" method="POST">
           <label for="submitter">
             <h2>Name</h2>
           </label>
@@ -30,7 +30,7 @@
           </label>
           <input type="text" name="photo" />
           <br />
-          <input type="submit" value="Submit the Fact"
+          <input type="submit" value="Submit the Fact" />
         </form>
       </div>
       <a href="/pets">&lt;&lt; Go Back</a>
