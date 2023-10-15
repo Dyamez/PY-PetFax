@@ -1,5 +1,5 @@
 from flask import ( Blueprint, render_template, request, redirect) 
-from .import models
+from . import models
 
 bp = Blueprint('fact', __name__, url_prefix="/facts") #/pets
 
@@ -16,7 +16,7 @@ def index():
         models.db.session.add(new_fact)
         models.db.session.commit()
 
-        redirect('/facts')
+        return redirect('/facts')
 
     results = models.Fact.query.all()
     for result in results:
