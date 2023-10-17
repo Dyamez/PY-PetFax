@@ -3,11 +3,31 @@ from . import models
 
 bp = Blueprint('fact', __name__, url_prefix="/facts") #/pets
 
-@bp.route('/', methods=["GET", "POST"])
-def index():
-    if request.method == "POST":
-        print(request.form)
+from flask import ( Blueprint, render_template, request, redirect ) 
+from . import models 
 
+[ ... ]
+
+@bp.route('/', methods=['GET', 'POST'])
+def index(): 
+    if request.method == 'POST':
+        submitter = request.form['submitter']
+        fact = request.form['fact']
+        photo = request.form['photo']
+
+        new_fact = models.Fact(submitter=submitter, fact=fact)
+        models.db.session.add(new_fact)
+        models.db.session.commit()
+
+        return redirect('/facts')
+    
+    results = models.Fact.query.all()
+    for result in results:
+        print(result)
+
+    return render_template('facts/index.html', facts=results)
+
+'''
         submitter = request.form['submitter']
         fact = request.form['fact']
         photo = request.form['photo']
@@ -24,7 +44,7 @@ def index():
     
     return render_template('facts/index.html', facts=results)  # need fix
     # return 'Thanks for submitting a fun fact!'
-
+'''
 @bp.route('new')
 def new():
     return render_template('facts/new.html')

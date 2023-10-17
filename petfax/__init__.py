@@ -9,7 +9,7 @@ def create_app():
     app = Flask(__name__)
 
     # database config 
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:chickboyz@localhost:5432/pet_fax'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:chickboyz@localhost:5433/pet_fax'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     from . import models 
