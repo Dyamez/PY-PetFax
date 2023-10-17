@@ -22,7 +22,7 @@ def index():
     for result in results:
         print(result)
     
-    return render_template('facts/index.html', facts=results)
+    return render_template('facts/index.html', facts=results)  # need fix
     # return 'Thanks for submitting a fun fact!'
 
 @bp.route('new')
